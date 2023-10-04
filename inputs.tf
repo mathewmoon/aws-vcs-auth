@@ -24,6 +24,7 @@ variable "provider_config" {
     url             = string
     thumbprint_list = list(string)
     client_id_list  = list(string)
+    subject         = string
   })
   default = null
 }
@@ -54,15 +55,4 @@ variable "additional_client_ids" {
   description = "A list of additional client ID's to add to the provider"
   type        = list(string)
   default     = []
-}
-
-variable "validate_subject" {
-  description = <<EOT
-    If set to a non empty value, then the Common Name in the IdP's certificate's subject will be validated to
-    match the input. Use only the expected name, and not the `CN=` prefix, `OU` or any other identifiers. An example
-    for Github would be `*.actions.githubusercontent.com`
-EOT
-  type        = string
-  default     = null
-
 }

@@ -16,7 +16,7 @@ data "tls_certificate" "this" {
 
   lifecycle {
     postcondition {
-      condition     = var.validate_subject == null || (replace(reverse(self.certificates)[0].subject, "/(.*CN=)|(,.*)/", "") == var.validate_subject)
+      condition     = var.oidc_provider_arn != null || replace(reverse(self.certificates)[0].subject, "/(.*CN=)|(,.*)/", "") == local.oidc_config.common_name
       error_message = "Subject returned for certificate doesn't match validation"
     }
   }
