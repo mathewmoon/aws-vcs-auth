@@ -36,7 +36,7 @@ This generates a new OIDC provider and produces the following outputs:
       "Effect": "Allow",
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Principal": {
-        "Federated": "arn:aws:iam::639775301592:oidc-provider/token.actions.githubusercontent.com"
+        "Federated": "arn:aws:iam::************:oidc-provider/token.actions.githubusercontent.com"
       },
       "Condition": {
         "StringEquals": {
